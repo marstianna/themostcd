@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration >
+	<!-- ===================================================================== -->
+	<!-- 以下是appender的定义 -->
+	<!-- ===================================================================== -->
+	<appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder charset="UTF-8"
+			class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<pattern>%d{MM-dd HH:mm:ss} [%-5level] %msg -%logger{35}:%L%n</pattern>
+		</encoder>
+	</appender>
+
+
+	<appender name="PROJECT"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>/Users/zoupeng/Documents/logs/cd.log</file>
+
+		<rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+			<FileNamePattern>/Users/zoupeng/Documents/logs/cd.%d{yyyy-MM-dd}.log</FileNamePattern>
+		</rollingPolicy>
+
+		<encoder>
+			<pattern>%d{MM-dd HH:mm:ss} [%-5level] %msg - %logger{35}:%L%n</pattern>
+		</encoder>
+	</appender>
+
+
+
+	<!-- ===================================================================== -->
+	<!-- Root logger的定义 -->
+	<!-- ===================================================================== -->
+
+
+	<logger name="java.sql.Connection" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</logger>
+	<logger name="java.sql.PreparedStatement" additivity="false">
+		<level value="DEBUG" />
+		<appender-ref ref="PROJECT" />
+		<appender-ref ref="CONSOLE" />
+	</logger> 
+
+	<logger name="org.springframework.scheduling.quartz"
+		additivity="false">
+		<level value="INFO" />
+	</logger>
+	
+	<root>
+		<level value="INFO" />
+		<appender-ref ref="CONSOLE" />
+		<appender-ref ref="PROJECT" />
+		<!-- <appender-ref ref="DOVE" /> <appender-ref ref="BUSINESS" /> -->
+	</root>
+
+</configuration>

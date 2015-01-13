@@ -4,7 +4,7 @@
         <wb-resource deploy-path="/" source-path="/target/m2e-jee/web-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <property name="context-root" value="test"/>
         <property name="java-output-path" value="/test/target/classes"/>
+        <property name="context-root" value="themostcd"/>
     </wb-module>
 </project-modules>

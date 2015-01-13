@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>com.themostcd</groupId>
-	<artifactId>test</artifactId>
+	<groupId>com</groupId>
+	<artifactId>themostcd</artifactId>
 	<version>1.0</version>
 	<packaging>war</packaging>
 
@@ -12,12 +12,11 @@
 		<project.build.targetJdk>1.7</project.build.targetJdk>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.version>1.0</project.version>
-
-		<!-- version -->
 		<dep.owl.version>3.0.4</dep.owl.version>
 		<dep.spring.version>3.1.4.RELEASE</dep.spring.version>
 
 	</properties>
+
 	<dependencies>
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -25,11 +24,6 @@
 			<version>1.1.40</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.apache.zookeeper</groupId>
-			<artifactId>zookeeper</artifactId>
-			<version>3.4.5</version>
-		</dependency>
 
 		<dependency>
 			<groupId>ch.qos.logback</groupId>
@@ -361,21 +355,6 @@
 		</dependency>
 
 		<dependency>
-			<groupId>com.jumei.parrot</groupId>
-			<artifactId>parrot-service</artifactId>
-			<version>1.1.2</version>
-		</dependency>
-
-		<!-- <dependency> <groupId>com.jumei.owl.logger</groupId> <artifactId>owl-logger</artifactId> 
-			<version>3.0.2</version> </dependency> -->
-
-		<dependency>
-			<groupId>com.jumei.owl.logger</groupId>
-			<artifactId>owl-logger</artifactId>
-			<version>${dep.owl.version}</version>
-		</dependency>
-
-		<dependency>
 			<groupId>commons-beanutils</groupId>
 			<artifactId>commons-beanutils</artifactId>
 			<version>1.7.0</version>
@@ -398,19 +377,6 @@
 			<artifactId>ehcache-web</artifactId>
 			<version>2.0.4</version>
 		</dependency>
-
-		<!-- drools -->
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-compiler</artifactId>
-			<version>6.1.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.drools</groupId>
-			<artifactId>drools-core</artifactId>
-			<version>6.1.0.Final</version>
-		</dependency>
-
 
 		<dependency>
 			<groupId>org.jminix</groupId>
@@ -442,6 +408,16 @@
 		</dependency>
 	</dependencies>
 
+	<profiles>
+		<profile>
+			<properties>
+				<mvn.jdbc_driver>com.mysql.jdbc.Driver</mvn.jdbc_driver>
+				<mvn.jdbc_url><![CDATA[jdbc:mysql://172.20.5.67:3306/promotion?allowMultiQueries=true&useUnicode=True&characterEncoding=utf-8]]></mvn.jdbc_url>
+				<mvn.jdbc_username>root</mvn.jdbc_username>
+				<mvn.jdbc_password></mvn.jdbc_password>
+			</properties>
+		</profile>
+	</profiles>
 
 	<build>
 		<plugins>
